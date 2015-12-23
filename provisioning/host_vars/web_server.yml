@@ -1,0 +1,7 @@
+---
+
+swapfile_size: 1GB
+swapfile_swappiness: 20
+
+timezone: 'Europe/London'
+nodejs_version: "0.12"

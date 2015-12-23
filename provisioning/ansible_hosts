@@ -1,0 +1,1 @@
+web_server ansible_ssh_host=46.101.41.168 ansible_ssh_user=root

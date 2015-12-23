@@ -1,0 +1,1 @@
+ansible-playbook -i provisioning/ansible_hosts provisioning/playbook.yml

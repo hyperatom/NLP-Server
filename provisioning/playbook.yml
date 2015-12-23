@@ -1,0 +1,28 @@
+---
+
+- hosts: web_server
+  sudo: yes
+
+  roles:
+    - ansible-swapfile
+    - ansible-timezone
+    - nodesource.node
+
+  tasks:
+
+    - name: Allow us to work with PPAs easily
+      apt: name=python-software-properties
+
+    - name: Add the Java repository
+      apt_repository: repo='ppa:webupd8team/java'
+
+    - name: Update app cache
+      apt: update_cache=yes
+
+    - name: Automatically select the Oracle License
+      shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+
+    - name: Install Core-NLP dependencies
+      apt: name={{ item }}
+      with_items:
+        - oracle-java8-installer
